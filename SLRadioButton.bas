@@ -1,7 +1,8 @@
-﻿Type=Class
-Version=4.7
+﻿B4J=true
+Group=Default Group
 ModulesStructureVersion=1
-B4J=true
+Type=Class
+Version=4.7
 @EndOfDesignText@
 'Custom View class
 #Event: SelectedChange(Selected As Boolean)
@@ -259,7 +260,7 @@ End Sub
 '
 
 Sub RB_MouseClicked (EventData As MouseEvent)
-	If SubExists(mModule,mEventName & "_MouseClicked") Then CallSub2(mModule,mEventName & "_MouseClicked",EventData)
+	If SubExists(mModule,mEventName & "_MouseClicked") Then CallSubDelayed2(mModule,mEventName & "_MouseClicked",EventData)
 End Sub
 
 'Change the radiobuttons selected value with a click on the label
@@ -269,11 +270,13 @@ Private Sub Label1_MouseClicked (EventData As MouseEvent)
 		RB.RequestFocus
 		If RB.Selected = False Then RB.Selected = Not(RB.Selected)
 	End If
+	
+	If SubExists(mModule,mEventName & "_MouseClicked") Then CallSubDelayed2(mModule,mEventName & "_MouseClicked",EventData)
 End Sub
 
 'Pass through the radiobutton's selected changed event
 Private Sub RB_SelectedChange(Selected As Boolean)
-	If SubExists(mModule,mEventName & "_SelectedChange") Then CallSub2(mModule,mEventName & "_SelectedChange",Selected)
+	If SubExists(mModule,mEventName & "_SelectedChange") Then CallSubDelayed2(mModule,mEventName & "_SelectedChange",Selected)
 End Sub
 
 Private Sub Base_Resize (Width As Double, Height As Double)

@@ -1,15 +1,17 @@
-﻿Version=4.7
-AppType=JavaFX
-NumberOfModules=2
-Module1=SLRadioButton
-Module2=SLRadioButton_Static
+﻿AppType=JavaFX
 Build1=Default,b4j.example
-NumberOfFiles=1
 File1=1.bjl
-NumberOfLibraries=3
+FileGroup1=Default Group
+Group=Default Group
 Library1=jcore
 Library2=jfx
 Library3=javaobject
+Module1=SLRadioButton
+Module2=SLRadioButton_Static
+NumberOfFiles=1
+NumberOfLibraries=3
+NumberOfModules=2
+Version=6.3
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 600
@@ -17,7 +19,9 @@ Library3=javaobject
 #End Region
 #LibraryName: SLRadioButton
 #LibraryAuthor: Steve Laming
-#LibraryVersion: 0.2
+#LibraryVersion: 0.3
+
+'0.3 added MouseClicked callback to Label
 
 Sub Process_Globals
 	Private fx As JFX
