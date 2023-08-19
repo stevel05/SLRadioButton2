@@ -1,0 +1,6 @@
+Author=Stevel05
+Version=1.00
+Supported Platforms=B4j
+B4j.DependsOn=jXui, JavaObject
+
+'{"comments":"SL radiobutton2 allows rotation of radiobuttons","projectfolders":["D:\\Documents\\AnywhereSoftware\\B4j\\JOLibs\\SLRadioButton2"],"createdate":"2023-08-07:001643","lastupdated":"2023-08-07:181356"}

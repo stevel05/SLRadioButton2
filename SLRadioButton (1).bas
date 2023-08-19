@@ -11,9 +11,6 @@ Version=4.7
 #DesignerProperty: Key: FixedWidth, DisplayName: Fixed Width, FieldType: String, DefaultValue: False, List: True|False
 #DesignerProperty: Key: AutoGroup, DisplayName: Auto Group, FieldType: String, DefaultValue: True, List: True|False
 #DesignerProperty: Key: Selected, DisplayName: Selected, FieldType: Boolean, DefaultValue: False
-#DesignerProperty: Key: SetTextColor, DisplayName: Set Text Color, FieldType: Boolean, DefaultValue: False, Description: Set the text color.  If you set the text color, any stylesheet settings will be ignored.
-#DesignerProperty: Key: TextColor, DisplayName: Text Color, FieldType: Color, DefaultValue: 0xFF000000, Description: Select a color for the Text Label
-
 
 Sub Class_Globals
 	Private fx As JFX
@@ -30,7 +27,7 @@ Sub Class_Globals
 	Public Const LOCATE_BOTTOM As String = "BOTTOM"
 	Private DesignerCVCalled As Boolean
 	Private CustomViewName As String = "SLRadioButton" 'Set this to the name of your custom view to provide meaningfull error logging
-	Private SetTextColor As Boolean
+	
 End Sub
 
 Public Sub Initialize (Module As Object, EventName As String)
@@ -85,12 +82,8 @@ Public Sub DesignerCreateView (Base As Pane, Lbl As Label, Props As Map)
 	End If
 	
 	Dim AutoGroup As Boolean = Props.GetDefault("AutoGroup","False") = "True"
+	Log("AG " & AutoGroup)
 	If AutoGroup Then FindToggleGroupAndAdd
-	
-	If Props.GetDefault("SetTextColor",False) Then
-		SetTextColor = True
-		Label1.TextColor = Props.GetDefault("TextColor",fx.Colors.Black)
-	End If
 	
 	RB.Selected = Props.GetDefault("Selected",False)
 	
@@ -170,7 +163,7 @@ Private Sub CloneLabel(Lbl As Label,EventName As String) As Label
 	CLbl.Style = Lbl.Style
 	CLbl.Tag = Lbl.Tag
 	CLbl.Text = Lbl.Text
-	If SetTextColor Then CLbl.TextColor = Lbl.TextColor
+	CLbl.TextColor = Lbl.TextColor
 	CLbl.TextSize = Lbl.TextSize
 	If Lbl.TooltipText <> "" Then CLbl.TooltipText = Lbl.TooltipText
 	CLbl.Visible = Lbl.Visible
@@ -222,8 +215,8 @@ Public Sub getToggleGroup As JavaObject
 	Return RBJO.RunMethod("getToggleGroup",Null)
 End Sub
 
-Public Sub setToggleGroup (ToggleGroup As JavaObject)
-	RBJO.RunMethod("setToggleGroup",Array(ToggleGroup.As(Object)))
+Public Sub setToggleGroup (ToggleGroup As Object)
+	RBJO.RunMethod("setToggleGroup",Array(ToggleGroup))
 End Sub
 
 'Get the ToggleGroup that the passed RadioButton belongs to.

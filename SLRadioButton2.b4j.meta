@@ -7,5 +7,6 @@ ModuleBreakpoints2=
 ModuleClosedNodes0=
 ModuleClosedNodes1=
 ModuleClosedNodes2=
+NavigationStack=SLRadioButton,FindToggleGroupAndAdd,237,0,SLRadioButton,CloneLabel,167,0,SLRadioButton,Setup,128,0,SLRadioButton,DesignerCreateView,81,0,SLRadioButton,Class_Globals,20,0,SLRadioButton,Initialize,33,0,SLRadioButton,getToggleGroup,215,0,SLRadioButton,setToggleGroup,220,2
 SelectedBuild=0
 VisibleModules=1,2
